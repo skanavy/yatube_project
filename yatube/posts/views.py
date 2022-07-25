@@ -12,5 +12,10 @@ def index(request):
     return render(request, template, context)
 
 
-def group_posts(request, pk):
-    return HttpResponse(f'slug {pk}')
+def group_posts(request):
+    template = 'posts/group_list.html'
+    text = 'Это главная страница проекта Yatube'
+    context = {
+        'text': text,
+    }
+    return render(request, template, context)
