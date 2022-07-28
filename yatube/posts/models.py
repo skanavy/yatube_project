@@ -4,6 +4,14 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class Group(models.Model):
+    def __str__(self):
+        return self.title
+    title = models.TextField()
+    slug = models.TextField()
+    description = models.TextField()
+
+
 class Post(models.Model):
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
@@ -13,7 +21,7 @@ class Post(models.Model):
         related_name='posts'
     )
     group = models.ForeignKey(
-        User,
+        Group,
         blank=True,
         null=True,
         on_delete=models.CASCADE,
@@ -21,9 +29,4 @@ class Post(models.Model):
     )
 
 
-class Group(models.Model):
-    def __str__(self):
-        return self.title
-    title = models.TextField()
-    slug = models.TextField()
-    description = models.TextField()
+
