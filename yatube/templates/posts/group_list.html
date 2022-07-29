@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <h1> {{ group.title }}</h1>
 {% for post in posts %}
 <ul>
@@ -12,8 +11,6 @@
   </li>
 </ul>
 <p>{{ post.text }}</p>
-
 {% if not forloop.last %}<hr>{% endif %}
 {% endfor %}
-
 {% endblock %}
